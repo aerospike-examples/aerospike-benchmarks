@@ -15,6 +15,14 @@
 #  License for the specific language governing permissions and limitations under
 #  the License.
 #
+#################################################################################
+#
+#  Purpose: This application graphs output from dstat.
+#           Dstat must be used with the following options:
+#
+#           dstat -Tcmndr --output  dstat.out
+#
+#################################################################################
 # import modules
 import json
 import math
