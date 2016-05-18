@@ -228,7 +228,7 @@ commit_failure_policy: stop
 # NOTE: if you reduce the size, you may not get you hottest keys loaded on startup.
 #
 # Default value is empty to make it "auto" (min(5% of Heap (in MB), 100MB)). Set to 0 to disable key cache.
-key_cache_size_in_mb: 2048
+key_cache_size_in_mb: 1024
 
 # Duration in seconds after which Cassandra should
 # save the key cache. Caches are saved to saved_caches_directory as
@@ -374,7 +374,7 @@ seed_provider:
 # number of "concurrent_writes" is dependent on the number of cores in
 # your system; (8 * number_of_cores) is a good rule of thumb.
 concurrent_reads: 32
-concurrent_writes: 64
+concurrent_writes: 128
 concurrent_counter_writes: 32
 
 # For materialized view writes, as there is a read involved, so this should
