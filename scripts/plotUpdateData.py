@@ -247,7 +247,7 @@ def main(argv):
      BinData = np.insert(BinData, i, tmpcnt, 0)
 
 #############################################################
-# Plot the Histogram 
+# Plot the Log Histogram 
 #############################################################
 
    x1 = []
@@ -281,6 +281,26 @@ def main(argv):
    fname = "UpdateLogHist."+dbname+".png"
    plt.savefig(fname)
 
+#############################################################
+# Plot Normal Histogram
+#############################################################
+
+   y_pos = y1
+   performance = x1
+
+   fig, ax = plt.subplots()
+   ax.set_xlim(0,buckets)
+
+   ax.bar(performance, y_pos, 1)
+
+   tmp_title = dbname.upper() + " Update Latency Histogram"
+   ax.set_title(tmp_title)
+   hist_xlabel = "Latency Bins in " + units
+   ax.set_xlabel(hist_xlabel)
+   ax.set_ylabel('Operations', color='b')
+
+   fname = "UpdateHist."+dbname+".png"
+   plt.savefig(fname)
 
 #############################################################
 # Generate Percentile Array for the Duration of Run

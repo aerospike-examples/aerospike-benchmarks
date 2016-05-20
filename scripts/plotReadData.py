@@ -275,10 +275,10 @@ def main(argv):
    fig, ax = plt.subplots()
    ax.set_yscale('log')
    ax.set_xlim(0,buckets)
-   #plt.bar(y_pos, performance, 1)
+
    ax.bar(performance, y_pos, 1)
-   #plt.bar(y_pos, performance, align='center', alpha=0.5)
-   #plt.xticks(50 )
+
+
    tmp_title = dbname.upper() + " Latency Histogram(Log Scale)"
    ax.set_title(tmp_title)
    hist_xlabel = "Latency Bins in " + units
@@ -286,6 +286,25 @@ def main(argv):
    ax.set_ylabel('Operations', color='b')
 
    fname = "ReadLogHist."+dbname+".png"
+   plt.savefig(fname)
+
+###################################################
+# Normal Histogram
+###################################################
+
+   fig, ax = plt.subplots()
+   ax.set_xlim(0,buckets)
+
+   ax.bar(performance, y_pos, 1)
+
+
+   tmp_title = dbname.upper() + " Read Latency Histogram"
+   ax.set_title(tmp_title)
+   hist_xlabel = "Latency Bins in " + units
+   ax.set_xlabel(hist_xlabel)
+   ax.set_ylabel('Operations', color='b')
+
+   fname = "ReadHist."+dbname+".png"
    plt.savefig(fname)
 
 
