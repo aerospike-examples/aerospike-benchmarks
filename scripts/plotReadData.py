@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env /usr/local/bin/python
 #
 #  Copyright 2012-2016 Aerospike, Inc.
 # 
