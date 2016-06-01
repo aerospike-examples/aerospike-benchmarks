@@ -39,7 +39,7 @@ requestdistribution=uniform
 
 
 status.interval=1
-maxexecutiontime=43200
+maxexecutiontime=600
 measurementtype=periodichistogram
 
 periodichistogram.buckets=1000
