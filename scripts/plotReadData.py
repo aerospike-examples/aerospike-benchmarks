@@ -302,7 +302,7 @@ def main(argv):
    ax.set_title(tmp_title)
    hist_xlabel = "Latency Bins in " + units
    ax.set_xlabel(hist_xlabel)
-   ax.set_ylabel('Operations', color='b')
+   ax.set_ylabel('Operations/s', color='b')
 
    fname = "ReadHist."+dbname+".png"
    plt.savefig(fname)
