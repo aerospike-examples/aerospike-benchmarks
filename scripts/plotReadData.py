@@ -370,7 +370,7 @@ def main(argv):
    ax1.set_ylim(0,int(ylim))
    ax1.plot(xv, TPData, 'b-')
    ax1.set_xlabel('time (s)')
-   ops='Operations ('+str(percentile*100)+" percentile)"
+   ops='Operations/s'
    ax1.set_ylabel(ops, color='b')
 
 
