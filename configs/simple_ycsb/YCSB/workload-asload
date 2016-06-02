@@ -39,9 +39,9 @@ requestdistribution=uniform
 
 
 
-measurementtype=hdrhistogram+periodichistogram
+measurementtype=periodichistogram
 #maxexecutiontime=60
-measurementtype=hdrhistogram
+#measurementtype=hdrhistogram
 #measurementtype=histogram
 #measurement.raw.output_file=/opt/YCSB/raw.out
 
