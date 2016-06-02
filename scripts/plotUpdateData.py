@@ -362,7 +362,7 @@ def main(argv):
    ax1.set_ylim(0,int(ylim))
    ax1.plot(xv, TPData, 'b-')
    ax1.set_xlabel('time (s)')
-   ops='Operations ('+str(percentile*100)+" percentile)"
+   ops='Operations/s'
    ax1.set_ylabel(ops, color='b')
 
 
@@ -387,7 +387,7 @@ def main(argv):
    ax1.set_ylim(0,ylim2)
    ax1.plot(xv, PCTData, 'r-')
    ax1.set_xlabel('time (s)')
-   lat_label = "Labency for "+str(percentile*100)+" Percentile"+ " in "+ str(units)
+   lat_label = "Latency for "+str(percentile*100)+" Percentile"+ " in "+ str(units)
    ax1.set_ylabel(lat_label, color='r')
 
    fname = "UpdateLatency."+dbname+".png"
