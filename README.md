@@ -5,7 +5,7 @@ initially cover the performance of Aerospike 3.8.2 and Cassandra 3.5. YCSB is th
 for measuring performance of high performance NoSQL databases.
 
 These results and discussion of tuning parameters are covered in Aerospike's blog at
-[http://www.aerospike.com/category/blog/](http://www.aerospike.com/category/blog/).
+[http://www.aerospike.com/blog/comparing-nosql-databases-aerospike-and-cassandra/](http://www.aerospike.com/blog/comparing-nosql-databases-aerospike-and-cassandra/).
 
 The following assets are provided: 
 * Configuration files for Aerospike, Cassandra, and YCSB
