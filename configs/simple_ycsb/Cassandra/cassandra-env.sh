@@ -137,7 +137,7 @@ esac
 # 100 MB per physical CPU core.
 
 MAX_HEAP_SIZE="8G"
-HEAP_NEWSIZE="2G"
+HEAP_NEWSIZE="1600M"
 
 # Set this to control the amount of arenas per-thread in glibc
 #export MALLOC_ARENA_MAX=4
