@@ -38,17 +38,12 @@ insertproportion=0
 requestdistribution=uniform
 
 
-
+status.interval=1
+maxexecutiontime=43200
 measurementtype=periodichistogram
-#maxexecutiontime=60
-#measurementtype=hdrhistogram
-#measurementtype=histogram
-#measurement.raw.output_file=/opt/YCSB/raw.out
+periodichistogram.bucket.interval=0.1
+periodichistogram.buckets=1000
 
-periodichistogram.buckets=100
-histogram.buckets=100
 
-#exportfile=results.txt
-#measurementtype=raw
 
 
