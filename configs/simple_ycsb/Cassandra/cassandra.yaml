@@ -373,7 +373,7 @@ seed_provider:
 # On the other hand, since writes are almost never IO bound, the ideal
 # number of "concurrent_writes" is dependent on the number of cores in
 # your system; (8 * number_of_cores) is a good rule of thumb.
-concurrent_reads: 32
+concurrent_reads: 64
 concurrent_writes: 128
 concurrent_counter_writes: 32
 
@@ -440,7 +440,7 @@ memtable_allocation_type: heap_buffers
 #
 # If your data directories are backed by SSD, you can increase this, but
 # avoid having memtable_flush_writers * data_file_directories > number of cores
-memtable_flush_writers: 8
+memtable_flush_writers: 16
 
 # A fixed memory pool size in MB for for SSTable index summaries. If left
 # empty, this will default to 5% of the heap size. If the memory usage of
@@ -462,7 +462,7 @@ index_summary_resize_interval_in_minutes: 60
 # impacting read latencies. Almost always a good idea on SSDs; not
 # necessarily on platters.
 trickle_fsync: true
-trickle_fsync_interval_in_kb: 1024
+trickle_fsync_interval_in_kb: 10240
 
 # TCP port, for commands and data
 # For security reasons, you should not expose this port to the internet.  Firewall it if needed.
@@ -695,7 +695,7 @@ batch_size_fail_threshold_in_kb: 50
 # 
 # If your data directories are backed by SSD, you should increase this
 # to the number of cores.
-concurrent_compactors: 4
+concurrent_compactors: 16
 
 # Throttles compaction to the given total throughput across the entire
 # system. The faster you insert data, the faster you need to compact in
@@ -729,7 +729,7 @@ sstable_preemptive_open_interval_in_mb: 50
 # inter_dc_stream_throughput_outbound_megabits_per_sec: 200
 
 # How long the coordinator should wait for read operations to complete
-read_request_timeout_in_ms: 5000
+read_request_timeout_in_ms: 20000
 # How long the coordinator should wait for seq or index scans to complete
 range_request_timeout_in_ms: 10000
 # How long the coordinator should wait for writes to complete
