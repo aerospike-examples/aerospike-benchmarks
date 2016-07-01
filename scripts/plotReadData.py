@@ -1,4 +1,4 @@
-#!/usr/bin/env /usr/local/bin/python
+#!/bin/python
 #
 #  Copyright 2012-2016 Aerospike, Inc.
 # 
@@ -38,7 +38,6 @@ class Interval:
   
    histogram = np.array([])
    starttime = 0.0
-   endtime = 777777777.0
    tp=3000
 
 
@@ -215,9 +214,13 @@ def main(argv):
 #For The Selected Range Process the Output
 ###################################################
    # Calculate the Throughput for Each Slice
+   print "CLIENT COUNT: ", client_cnt
+   print "SLICE COUNT: ", slice_count
    for i in range(0, slice_count-1):
      tmpcnt=0
      for j in range(0, client_cnt):
+       print "CLIENT COUNT: ", client_cnt
+       print "SLICE COUNT: ", i
        tmpcnt += client_data_list[j][i].tp
      TPData = np.insert(TPData, i, tmpcnt, 0)
      if tmpcnt > max_tp:
@@ -231,11 +234,7 @@ def main(argv):
    print "TOTAL THROUGHPUT:", tmpcnt
    print "SLICE_COUNT :",slice_count
 
-#   print "MAX TP:", max_tp
-#   ylim = float(max_tp) / 0.66
-#   ylim = round(float(ylim)/10000.0) * 10000.0
-#   print "YLIM TP:", ylim
-   ylim = 110000
+   ylim = 170000
 
 
 ###################################################
@@ -347,7 +346,7 @@ def main(argv):
 #   ylim2 = float(max_lat) / 0.5
 #   ylim2 = round(float(ylim2)/10.0) * 10.0
 #   print "YLIM TP:", ylim2
-   ylim2 = 1000
+   ylim2 = 120
 
 
 
@@ -386,16 +385,28 @@ def main(argv):
    for n in range(0,slice_count-1):
      x1.append(n)
 
+# Convert data to numpy arrays
    xv = np.array(x1)
+   yv = np.array(PCTData)
 
+# Convert data from tenths of ms to ms
+   for i in xv:
+     yv[i] = float(yv[i])/10.0
+
+# Set the 0 latency points to nan so they won't get graphed
+   for n in xv:
+      if (float(yv[n]) <  float(0.0000001)):
+        yv[n]= np.nan
+
+# Plot the Latency
    fig, ax1 = plt.subplots()
 
    tmp_title = dbname.upper() + " Read Latency"
    ax1.set_title(tmp_title)
    ax1.set_ylim(0,ylim2)
-   ax1.plot(xv, PCTData, 'r-')
+   ax1.plot(xv, yv, 'r-')
    ax1.set_xlabel('time (s)')
-   lat_label = "Latency for "+str(percentile*100)+" Percentile"+ " in "+ str(units)
+   lat_label = "Latency for "+str(percentile*100)+" Percentile"+ " in ms "
    ax1.set_ylabel(lat_label, color='r')
 
    fname = "ReadLatency."+dbname+".png"
